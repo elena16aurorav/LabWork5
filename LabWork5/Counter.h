@@ -6,6 +6,7 @@ class Counter{
 	char* m_pStr;
 	Counter* pNext;
 public:
+
 	Counter(const char* p);
 	~Counter();
 	void AddUser();
