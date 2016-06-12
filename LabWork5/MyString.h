@@ -1,18 +1,30 @@
+#pragma once
+
+#include <iostream>
 #include "Counter.h"
 
-class MyString{
-	Counter* m_pMyCounter;
+
+class MyString
+{
+private:
+		Counter * m_pMyCounter;
+
 public:
-	MyString(const char* p = " ");
-	MyString(const MyString& other);
-	MyString(const MyString&& tmp);
-	
+	MyString(const char* string = " ");//&");
+	MyString(const MyString&);
+	MyString(MyString &&);
 	~MyString();
 
 	MyString& operator=(const MyString& other);
-	MyString& operator=(const MyString&& tmp);
+	MyString& operator=(MyString &&);
 
-	//printAll
-	//upperRegister
-	//sort
+	friend std::ostream& operator<<(std::ostream& os, const MyString& string);
+
+	static void Print();
+	static void ToUp();
+	static void ToLow();
+	static void PrintToAlph();
 };
+
+std::ostream& operator<<(std::ostream& os, const MyString& string);
+

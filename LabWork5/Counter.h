@@ -1,17 +1,27 @@
-class Counter{
-	static Counter* Head;
-	static unsigned int m_curCounters;//аналог m_size
+#pragma once
 
-	size_t m_nOwners;//m_count
+class Counter
+{
+private:
 	char* m_pStr;
+	size_t m_nOwners;
 	Counter* pNext;
-public:
 
-
-	Counter(const char* p);
+	Counter(const char* p = " ");
+	void AddString();
+	void RemoveString();
 	~Counter();
-	void AddUser();
-	void RemoveUser();
+
+	static unsigned int m_curCounters;
+	static Counter* pHead;
+
+	static Counter* CreateCounter(const char* p);
+
+	static void Print();
+	static void ToUp();
+	static void ToLow();
+	static void PrintToAlph();
 
 	friend class MyString;
 };
+
